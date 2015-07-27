@@ -49,3 +49,6 @@ end
 
 # Installing the RubyGem
 gem 'omniauth-twitter'
+
+# Wait! Products are voteable!
+gem 'acts_as_votable', '~> 0.10.0'
