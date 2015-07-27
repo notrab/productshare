@@ -46,3 +46,6 @@ end
 group :development do
   gem 'figaro'
 end
+
+# Installing the RubyGem
+gem 'omniauth-twitter'
