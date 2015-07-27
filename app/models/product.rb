@@ -9,4 +9,8 @@ class Product < ActiveRecord::Base
   def user
     super || NullUser.new
   end
+
+  def to_date
+    created_at.to_date
+  end
 end
