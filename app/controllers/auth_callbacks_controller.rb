@@ -4,7 +4,7 @@ class AuthCallbacksController < ApplicationController
     @user = AuthMicroService.new(auth_hash).find_or_create
 
     session[:user_id] = @user.id
-    redirect_to auth_origin, notice: "Welcome #{user.name}!"
+    redirect_to auth_origin, notice: "Welcome #{@user.name}!"
   end
 
   def failure
@@ -14,7 +14,7 @@ class AuthCallbacksController < ApplicationController
   private
 
   def auth_hash
-    request.env['omniauth.hash']
+    request.env['omniauth.auth']
   end
 
   def auth_origin

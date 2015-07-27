@@ -12,9 +12,7 @@ class AuthMicroService
   attr_accessor :auth_hash
 
   def find_by_hash
-    user = User.find_by(uid: auth_hash.uid)
-    update_provider_info(user)
-    user
+    User.find_by(uid: auth_hash.uid)
   end
 
   def create_from_hash

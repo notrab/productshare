@@ -1,0 +1,4 @@
+:plain
+  $("ul.post-list").first().append("#{escape_javascript(render(partial: @product))}");
+  $("li.post a.post-vote[data-id=#{@product.id}]").addClass('voted');
+  $("form#new_product").trigger("reset");

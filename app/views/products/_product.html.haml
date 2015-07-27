@@ -1,0 +1,12 @@
+= content_tag :li, class: 'post' do
+  = link_to vote_product_path(product), class: "post-vote#{signed_in? && current_user.voted_for?(product) ? ' voted' : ''}", remote: true, data: { id: product.id } do
+    %span.up ▲
+    = content_tag :span, product.vote_count, class: 'post-vote-count', data: { id: product.id }
+  %div.tooltip.post-avatar
+    = image_tag product.user.avatar, title: product.user.name, class: 'tooltip-link'
+    %div.tooltip-content
+      = image_tag product.user.avatar
+      = content_tag :span, product.user.name
+
+  = link_to product.name, link_product_path(product), class: 'post-title', title: product.tagline
+  = content_tag :span, product.tagline, class: 'post-tagline'

@@ -1,0 +1,11 @@
+- if signed_in?
+  = simple_form_for @product, remote: true do |f|
+    %h1 Post a new Product
+    %h2 Share your product with the world
+    = render 'form', f: f
+- @products.each do |date, products|
+  .date
+    %h2= date.strftime("%A")
+    %span= date.strftime("%B #{date.day.ordinalize}")
+  %ul.post-list
+    = render products.sort_by(&:vote_count).reverse

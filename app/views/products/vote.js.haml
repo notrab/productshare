@@ -1,0 +1,8 @@
+:plain
+  $(".post-vote-count[data-id=#{@product.id}]").html('#{@product.vote_count}');
+- if current_user.voted_for?(@product)
+  :plain
+    $("li.post a.post-vote[data-id=#{@product.id}]").addClass('voted');
+- else
+  :plain
+    $("li.post a.post-vote[data-id=#{@product.id}]").removeClass('voted');

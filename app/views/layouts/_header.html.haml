@@ -1,0 +1,15 @@
+%header
+  .wrapper
+    %h1.logo
+      = link_to 'ProductShare', root_path
+    %div.dropdown
+      - if signed_in?
+        = link_to '#', class: 'dropdown-link account-link' do
+          = image_tag current_user.avatar, alt: current_user.name, class: 'account-avatar'
+          = content_tag :span, current_user.name, class: 'account-username'
+        %ul.dropdown-menu
+          %li
+            = link_to 'Sign out', sign_out_path, method: :delete, class: 'signout-link'
+      - else
+        = link_to 'Sign in with Twitter', '/auth/twitter', class: 'dropdown-link signin-link'
+    = link_to '', '#', class: 'add-product-link'

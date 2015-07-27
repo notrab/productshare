@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :get_product, only: [:vote, :link]
-  
+
   def index
     @product = current_user.products.new if signed_in?
     @products = Product.order(created_at: :desc).group_by(&:to_date)
@@ -42,6 +42,6 @@ class ProductsController < ApplicationController
   end
 
   def get_product
-    @product = Product.friendly.find(params[:slug])
+    @product = Product.find(params[:id])
   end
 end

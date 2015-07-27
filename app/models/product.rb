@@ -13,4 +13,8 @@ class Product < ActiveRecord::Base
   def to_date
     created_at.to_date
   end
+
+  def vote_count
+    votes_for.size
+  end
 end
